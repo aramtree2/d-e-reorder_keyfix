@@ -14,7 +14,7 @@ jobs:
           cl keyfix.cpp user32.lib winmm.lib
 
       - name: upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: keyfix
           path: keyfix.exe
