@@ -1,0 +1,20 @@
+name: build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: build
+        run: |
+          cl keyfix.cpp user32.lib winmm.lib
+
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: keyfix
+          path: keyfix.exe
