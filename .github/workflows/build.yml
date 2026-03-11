@@ -7,14 +7,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - uses: ilammy/msvc-dev-cmd@v1
 
       - name: build
-        run: |
-          cl keyfix.cpp user32.lib winmm.lib
+        run: cl keyfix.cpp user32.lib winmm.lib
 
-      - name: upload
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: keyfix
           path: keyfix.exe
